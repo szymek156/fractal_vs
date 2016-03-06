@@ -933,9 +933,9 @@ int GLUtil::initGL(int argc, char *argv[])
     return -1;
   }
 
-  texWidth_ = 128;
+  texWidth_ = 1024;
 
-  texHeight_ = 128;
+  texHeight_ = 1024;
   
   loadShaders("../fractal_vs_3/shaders/vertex.vsh", "../fractal_vs_3/shaders/fragment.fsh");
 

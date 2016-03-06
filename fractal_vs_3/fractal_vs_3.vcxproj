@@ -68,8 +68,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>D:\HOBBY\programiren\projekty\fractal_vs_3\fractal_vs_3\lib\inc;C:\CUDA\7.5\SAMPLES\common\inc;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\HOBBY\programiren\projekty\fractal_vs_3\fractal_vs_3\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\HOBBY\programiren\projekty\fractal_vs_git\fractal_vs_3\lib\inc;C:\CUDA\7.5\SAMPLES\common\inc;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\HOBBY\programiren\projekty\fractal_vs_git\fractal_vs_3\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -79,6 +79,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
