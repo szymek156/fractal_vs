@@ -15,10 +15,10 @@
 #include "CudaUtil.h"
 
 extern "C" void process(int *cuda, int size, int width, int height, double ratio,
-                            float mouseX, float mouseY, int iterations);
+                            double mouseX, double mouseY, int iterations);
 
 extern "C" void processPartial(int *buffCuda, int buffSize, int width, int height,
-                                   double ratio, float mouseX, float mouseY,
+                                   double ratio, double mouseX, double mouseY,
                                        int offsetWidth, int offsetHeight,
                                            dim3 *grid, dim3 *block, int iterations);
 
@@ -87,9 +87,9 @@ void CudaUtil::mandelbrotGPU(int partial, int iterations)
 
   if (partial == 1)
   {
-    int division = 8;
+    int division = 4;
 
-    int blockDim = 16;
+    int blockDim = 32;
 
     dim3 grid((width / (float) blockDim + 0.5f), (height / (float) blockDim + 0.5f), 1);
 
@@ -112,7 +112,7 @@ void CudaUtil::mandelbrotGPU(int partial, int iterations)
         #endif
 
         processPartial(bufferCuda_, bufferSize_, width, height,
-                           GLUtil::getZoom(), GLUtil::getMouseX(), GLUtil::getMouseY(),
+                           GLUtil::getBounduary(), GLUtil::getMouseX(), GLUtil::getMouseY(),
                                  offsetWidth, offsetHeight, &grid, &block, iterations);
       }
     }
@@ -120,7 +120,7 @@ void CudaUtil::mandelbrotGPU(int partial, int iterations)
   else
   {
     process(bufferCuda_, bufferSize_, height, width,
-                GLUtil::getZoom(), GLUtil::getMouseX(), GLUtil::getMouseY(),
+		GLUtil::getBounduary(), GLUtil::getMouseX(), GLUtil::getMouseY(),
                     iterations);
   }
 

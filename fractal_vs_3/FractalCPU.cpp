@@ -62,10 +62,6 @@ void FractalCPU::render(double peepholeSize, double centerX, double centerY, int
 	{
 		std::unique_lock<std::mutex> hold(m_workMutex);
 		m_workToDo.wait(hold, [this] {return m_finishedJob == 0; });
-		//while (m_finishedJob != 0)
-		//{
-		//	std::this_thread::sleep_for(std::chrono::milliseconds(100));
-		//}
 	}
 }
 

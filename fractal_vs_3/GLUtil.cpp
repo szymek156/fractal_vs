@@ -306,9 +306,9 @@ void GLUtil::displayHandler()
   {
 	  std::chrono::time_point<std::chrono::system_clock>  start = std::chrono::system_clock::now();
 
-	 // Fractal::mandelbrotGPUNative(1);
+	 Fractal::mandelbrotGPUNative(1);
 
-    Fractal::mandelbrotCPUNative(1);
+    //Fractal::mandelbrotCPUNative(1);
 
 
 	//Fractal::mandelbrotCPUNativeParallel(1);
@@ -933,9 +933,9 @@ int GLUtil::initGL(int argc, char *argv[])
     return -1;
   }
 
-  texWidth_ = 128;
+  texWidth_ = 256;
 
-  texHeight_ = 128;
+  texHeight_ = 256;
   
   loadShaders("../fractal_vs_3/shaders/vertex.vsh", "../fractal_vs_3/shaders/fragment.fsh");
 

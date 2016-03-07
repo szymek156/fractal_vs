@@ -115,7 +115,7 @@ int __device__ colorGray(int counter)
 }
 
 void __global__ mandelbrotNative(int *buff, int size, int width, int height,
-                                 float ratio, float mouseX, float mouseY,
+                                 double ratio, double mouseX, double mouseY,
                                      int offsetWidth, int offsetHeight,
                                          int iterations)
 {
@@ -128,22 +128,23 @@ void __global__ mandelbrotNative(int *buff, int size, int width, int height,
   {
 	  if (thX == width >> 1 || thY == height >> 1)
 	  {
-		  buff[thY * width + thX] = 0;
+		  buff[thY * width + thX] = 0xffffffff;
 		  return;
 	  }
     //
     // A(?)BGR
     //
 
+	  double centeringX = mouseX - (ratio / (2.0));
+	  double centeringY = mouseY - (ratio / (2.0));
+
     int color;
 
-    double boundary = (width >> 1) * ratio;
+    double x0 = ((ratio/width) * thX);
+	double y0 = ((ratio/height) * thY);
 
-    double x0 = ( ratio * thX) - boundary;
-	double y0 = (-ratio * thY) + boundary;
-
-    x0 += mouseX;
-    y0 += mouseY;
+    x0 += centeringX;
+    y0 += centeringY;
 
 	double x = 0;
 	double y = 0;
@@ -424,7 +425,7 @@ void __global__ mandelbrotQuad(int *buff, int size, int width, int height,
 }
 
 extern "C" void process(int *buffCuda, int buffSize, int width, int height,
-                            double ratio, float mouseX, float mouseY,
+                            double ratio, double mouseX, double mouseY,
                                 int iterations)
 {
   //
@@ -447,7 +448,7 @@ extern "C" void process(int *buffCuda, int buffSize, int width, int height,
 }
 
 extern "C" void processPartial(int *buffCuda, int buffSize, int width, int height,
-                                   double ratio, float mouseX, float mouseY,
+                                   double ratio, double mouseX, double mouseY,
                                        int offsetWidth, int offsetHeight,
                                            dim3 *grid, dim3 *block,
                                                int iterations)
