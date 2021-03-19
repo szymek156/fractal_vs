@@ -12,7 +12,7 @@ https://www.youtube.com/watch?v=pCpLWbHVNhk
 * Changing number of iterations during runtime (less iterations at the beginning, to zoom faster, increasing amount to get more details)
 * CUDA and CPU versions
 * CPU version paralelilzed over the cores
-* CPU version has float custom implementation https://github.com/szymek156/fractal_vs/blob/master/fractal_vs_3/quadruple2.cpp to increase fractal zoom resolution (doubled the "double" :) ). See https://github.com/szymek156/fractal_vs/blob/master/double_bench/2_comparsion_double_vs_doubledouble.png
+* CPU version has float custom implementation https://github.com/szymek156/fractal_vs/blob/master/fractal_vs_3/quadruple.cpp to increase fractal zoom resolution (doubled the "double" :) ). See https://github.com/szymek156/fractal_vs/blob/master/double_bench/2_comparsion_double_vs_doubledouble.png
 * Rendering using OpenGL
 
 
